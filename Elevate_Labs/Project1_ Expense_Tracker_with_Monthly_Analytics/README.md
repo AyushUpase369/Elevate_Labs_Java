@@ -22,7 +22,7 @@ A simple desktop application built with **Java**, **JavaFX**, **SQLite**, and **
 
 ---
 
-## Screenshots
+## 📷 Screenshots
 
 ![Home](https://github.com/user-attachments/assets/1d72cb00-c610-44b6-9651-505ac8550326)
 ![Addingdata](https://github.com/user-attachments/assets/54f4f957-5242-4c54-b6e0-9b4fb91673f9)
