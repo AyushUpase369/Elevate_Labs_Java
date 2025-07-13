@@ -22,6 +22,16 @@ A simple desktop application built with **Java**, **JavaFX**, **SQLite**, and **
 
 ---
 
+## Screenshots
+
+![Home](https://github.com/user-attachments/assets/1d72cb00-c610-44b6-9651-505ac8550326)
+![Addingdata](https://github.com/user-attachments/assets/54f4f957-5242-4c54-b6e0-9b4fb91673f9)
+![AddedSucc](https://github.com/user-attachments/assets/fcbfe6a9-bc0a-4e45-8355-9d3e438e189b)
+![ExpenseData](https://github.com/user-attachments/assets/6b03d5ae-9275-4579-b505-e6ff26daa59b)
+
+
+---
+
 ## 📁 Folder Structure
 
 ```
