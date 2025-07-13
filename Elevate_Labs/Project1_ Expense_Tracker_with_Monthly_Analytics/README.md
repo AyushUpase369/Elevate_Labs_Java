@@ -2,6 +2,8 @@
 
 A simple desktop application built with **Java**, **JavaFX**, **SQLite**, and **JFreeChart** to manage your expenses and visualize monthly analytics.
 
+## Beta Version ---> Build in Processing.....
+
 ---
 
 ## ✅ Features
@@ -34,7 +36,9 @@ Expense_Tracker/
 │   ├── ExpenseForm.java
 │   └── ExpenseChart.java
 │
-├── lib/                        # External libraries (JARs)
+├── lib/                       # External libraries (JARs)
+|   ├── JavaFX
+|       ├── (JavaFX.jar Files)         
 │   ├── sqlite-jdbc-3.36.0.3.jar
 │   └── jfreechart-1.5.3.jar
 │
