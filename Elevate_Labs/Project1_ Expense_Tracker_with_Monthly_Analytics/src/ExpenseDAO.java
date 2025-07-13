@@ -26,4 +26,27 @@ public class ExpenseDAO {
         }
         return data;
     }
+
+    public static String getDetailsByMonth(String month) {
+    StringBuilder result = new StringBuilder();
+    try{
+        Connection conn = DBUtil.getConnection();
+        String sql = "SELECT name, amount FROM expenses WHERE month = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, month);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            result.append(rs.getString("name"))
+                  .append(": ₹")
+                  .append(rs.getDouble("amount"))
+                  .append("\n");
+        }
+    } catch (SQLException e) {
+        result.append("Error loading data.");
+        e.printStackTrace();
+    }
+
+    return result.length() == 0 ? "No expenses found for " + month : result.toString();
+}
+
 }

@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
+        DBUtil.connect(); // ✅ REQUIRED
         VBox root = new VBox(10);
         root.getChildren().addAll(
     ExpenseForm.getForm(),

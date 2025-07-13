@@ -10,17 +10,48 @@ public class ExpenseForm {
                                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
         Button submit = new Button("Add Expense");
+        
         submit.setOnAction(e -> {
-            String name = nameField.getText();
-            double amount = Double.parseDouble(amountField.getText());
-            String month = monthBox.getValue();
+    try {
+        String name = nameField.getText();
+        double amount = Double.parseDouble(amountField.getText());
+        String month = monthBox.getValue();
 
-            Expense expense = new Expense(name, amount, month);
-            ExpenseDAO.insertExpense(expense);
-            nameField.clear(); amountField.clear(); monthBox.getSelectionModel().clearSelection();
-        });
+        if (name.isEmpty() || month == null) {
+            throw new IllegalArgumentException("All fields must be filled.");
+        }
 
-        VBox form = new VBox(5, new Label("Name:"), nameField,
+        Expense expense = new Expense(name, amount, month);
+        ExpenseDAO.insertExpense(expense);
+
+        // Clear fields after success
+        nameField.clear();
+        amountField.clear();
+        monthBox.getSelectionModel().clearSelection();
+
+        // ✅ Show success alert
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Expense added successfully!");
+        alert.showAndWait();
+    } catch (NumberFormatException ex) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText(null);
+        alert.setContentText("Amount must be a valid number.");
+        alert.showAndWait();
+    } catch (IllegalArgumentException ex) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Missing Fields");
+        alert.setHeaderText(null);
+        alert.setContentText(ex.getMessage());
+        alert.showAndWait();
+    }
+});
+
+
+        VBox form = new VBox(5, new Label("Expense Name:"), nameField,
                                 new Label("Amount:"), amountField,
                                 new Label("Month:"), monthBox,
                                 submit);

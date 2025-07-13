@@ -15,6 +15,7 @@ public class DBUtil {
     }
 
     public static Connection getConnection() {
+        if (conn == null) connect(); // Automatically connect if needed
         return conn;
     }
 
